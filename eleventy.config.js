@@ -1,6 +1,9 @@
 export default function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("src/css");
 	eleventyConfig.addPassthroughCopy("src/img");
+	// Custom domain for GitHub Pages. Must be in the built output, or each
+	// deploy overwrites the Pages domain setting.
+	eleventyConfig.addPassthroughCopy("src/CNAME");
 
 	eleventyConfig.addFilter("readableDate", (value) =>
 		new Date(value).toLocaleDateString("en-GB", {

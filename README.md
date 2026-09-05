@@ -2,7 +2,7 @@
 
 Personal site. [Eleventy](https://www.11ty.dev/) 3.x, no framework, plain CSS.
 
-Live at <https://nwebz-dev.github.io>.
+Live at <https://nwebz.co>.
 
 ## Local development
 
