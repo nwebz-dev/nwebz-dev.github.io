@@ -1,0 +1,17 @@
+{
+  "name": "nwebz-dev.github.io",
+  "version": "1.0.0",
+  "description": "Personal site, built with Eleventy.",
+  "type": "module",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "clean": "rm -rf _site"
+  },
+  "keywords": [],
+  "author": "Nick Weber",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.6"
+  }
+}

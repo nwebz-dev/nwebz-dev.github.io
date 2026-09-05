@@ -1,0 +1,23 @@
+---
+layout: base.njk
+title: Nick Weber
+---
+
+<section class="intro">
+	<h1>Nick Weber</h1>
+	<p>{{ site.description }}</p>
+</section>
+
+<section>
+	<h2>Recent writing</h2>
+	<ul class="post-list">
+		{%- for post in collections.posts | reverse %}
+		<li>
+			<a href="{{ post.url }}">{{ post.data.title }}</a>
+			<time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+		</li>
+		{%- else %}
+		<li>Nothing published yet.</li>
+		{%- endfor %}
+	</ul>
+</section>
