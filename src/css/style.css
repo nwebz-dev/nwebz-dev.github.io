@@ -228,6 +228,50 @@ h3 + p strong {
 	font-variant-numeric: tabular-nums;
 }
 
+/* Pagination */
+
+.pagination {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem 1rem;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 2.5rem;
+	padding-top: 1.25rem;
+	border-top: 1px solid var(--rule);
+	font-family: ui-sans-serif, system-ui, sans-serif;
+	font-size: 0.875rem;
+}
+
+.pagination > span[aria-hidden] {
+	color: var(--rule);
+}
+
+.pagination ol {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.pagination ol a,
+.pagination ol span {
+	display: block;
+	min-width: 1.75rem;
+	padding: 0.15rem 0.3rem;
+	border-radius: 3px;
+	text-align: center;
+	font-variant-numeric: tabular-nums;
+}
+
+.pagination ol [aria-current="page"] {
+	background: var(--code-bg);
+	color: var(--fg);
+	font-weight: 600;
+}
+
 /* Social links */
 
 .social {

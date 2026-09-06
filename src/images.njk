@@ -1,15 +1,19 @@
 ---
 layout: base.njk
 title: Images
-permalink: /images/
 bodyClass: wide
+pagination:
+  data: images
+  size: 9
+  alias: photos
+permalink: "/images/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber + 1 }}/{% endif %}"
 ---
 
 <h1>Images</h1>
 
-{%- if images.length %}
+{%- if photos.length %}
 <ul class="gallery">
-	{%- for image in images %}
+	{%- for image in photos %}
 	<li>
 		<a href="{{ image.url }}">
 			<img src="{{ image.url }}" alt="{{ image.caption }}" loading="lazy" />
@@ -17,6 +21,34 @@ bodyClass: wide
 	</li>
 	{%- endfor %}
 </ul>
+
+{%- if pagination.pages.length > 1 %}
+<nav class="pagination" aria-label="Gallery pages">
+	{%- if pagination.href.previous %}
+	<a href="{{ pagination.href.previous }}" rel="prev">← Newer</a>
+	{%- else %}
+	<span aria-hidden="true">← Newer</span>
+	{%- endif %}
+
+	<ol>
+		{%- for pageHref in pagination.hrefs %}
+		<li>
+			{%- if loop.index0 == pagination.pageNumber %}
+			<span aria-current="page">{{ loop.index }}</span>
+			{%- else %}
+			<a href="{{ pageHref }}">{{ loop.index }}</a>
+			{%- endif %}
+		</li>
+		{%- endfor %}
+	</ol>
+
+	{%- if pagination.href.next %}
+	<a href="{{ pagination.href.next }}" rel="next">Older →</a>
+	{%- else %}
+	<span aria-hidden="true">Older →</span>
+	{%- endif %}
+</nav>
+{%- endif %}
 {%- else %}
 <p>
 	Nothing here yet. Drop image files into <code>src/img/</code> and they'll
