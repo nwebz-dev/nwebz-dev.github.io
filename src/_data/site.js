@@ -6,8 +6,7 @@ export default {
 	social: {
 		github: "https://github.com/nwebz-dev",
 		linkedin: "https://www.linkedin.com/in/nick-weber-37a014a6",
-		// TODO: replace with your profile URL
-		instagram: "https://www.instagram.com/REPLACE-ME/",
+		instagram: "https://www.instagram.com/fuzzy.dunnlop",
 	},
 	nav: [
 		{ label: "About", url: "/about/" },
