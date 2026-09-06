@@ -1,22 +1,13 @@
+/* Dark only — soft yellow needs a dark ground to stay readable. */
 :root {
-	--bg: #fdfdfc;
-	--fg: #1a1a18;
-	--muted: #6b6b66;
-	--accent: #1b5e9c;
-	--rule: #e2e2dd;
-	--code-bg: #f2f2ee;
+	color-scheme: dark;
+	--bg: #16161a;
+	--fg: #f0dfa6;
+	--muted: #bfae7d;
+	--accent: #ffd76b;
+	--rule: #2c2c33;
+	--code-bg: #1f1f25;
 	--measure: 34rem;
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
-		--bg: #16161a;
-		--fg: #e8e8e4;
-		--muted: #96968f;
-		--accent: #74b3f0;
-		--rule: #2c2c33;
-		--code-bg: #1f1f25;
-	}
 }
 
 *,
@@ -140,6 +131,84 @@ time {
 	margin-top: 3rem;
 	font-family: ui-sans-serif, system-ui, sans-serif;
 	font-size: 0.875rem;
+}
+
+/* Gallery */
+
+body.wide {
+	max-width: 52rem;
+}
+
+.gallery {
+	list-style: none;
+	padding: 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.5rem 1.25rem;
+}
+
+/* Three across is too tight to read on a phone. */
+@media (max-width: 34rem) {
+	.gallery {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+.gallery li {
+	margin: 0;
+}
+
+.gallery img {
+	display: block;
+	width: 100%;
+	height: auto;
+	border-radius: 4px;
+	background: var(--code-bg);
+}
+
+/* CV */
+
+h3 + p strong {
+	font-variant-numeric: tabular-nums;
+}
+
+/* Social links */
+
+.social {
+	display: flex;
+	gap: 0.75rem;
+	margin: 3rem 0 0;
+	padding: 0;
+	list-style: none;
+}
+
+.social li {
+	margin: 0;
+}
+
+.social a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2.5rem;
+	height: 2.5rem;
+	border: 1px solid var(--rule);
+	border-radius: 50%;
+	color: var(--muted);
+	transition:
+		color 0.15s ease,
+		border-color 0.15s ease;
+}
+
+.social a:hover {
+	color: var(--accent);
+	border-color: var(--accent);
+}
+
+.social svg {
+	width: 1.125rem;
+	height: 1.125rem;
+	fill: currentColor;
 }
 
 /* Code */

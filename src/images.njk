@@ -1,0 +1,25 @@
+---
+layout: base.njk
+title: Images
+permalink: /images/
+bodyClass: wide
+---
+
+<h1>Images</h1>
+
+{%- if images.length %}
+<ul class="gallery">
+	{%- for image in images %}
+	<li>
+		<a href="{{ image.url }}">
+			<img src="{{ image.url }}" alt="{{ image.caption }}" loading="lazy" />
+		</a>
+	</li>
+	{%- endfor %}
+</ul>
+{%- else %}
+<p>
+	Nothing here yet. Drop image files into <code>src/img/</code> and they'll
+	appear on this page automatically.
+</p>
+{%- endif %}

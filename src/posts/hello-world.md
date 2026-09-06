@@ -1,5 +1,5 @@
 ---
-title: Hello world
+title: sobriety
 date: 2026-09-02
 description: First post on the new site.
 ---

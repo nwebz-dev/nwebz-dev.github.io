@@ -5,6 +5,11 @@ export default function (eleventyConfig) {
 	// deploy overwrites the Pages domain setting.
 	eleventyConfig.addPassthroughCopy("src/CNAME");
 
+	// The gallery is built from a directory listing in _data/images.js, which
+	// Eleventy can't see as a dependency. Without this, adding or removing a
+	// photo leaves the served page stale until the dev server restarts.
+	eleventyConfig.addWatchTarget("src/img/", { resetConfig: true });
+
 	eleventyConfig.addFilter("readableDate", (value) =>
 		new Date(value).toLocaleDateString("en-GB", {
 			year: "numeric",
