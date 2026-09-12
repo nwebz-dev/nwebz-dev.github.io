@@ -22,6 +22,11 @@ permalink: "/images/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 	{%- endfor %}
 </ul>
 
+{#- Swapped in by the script below; the links still work without JS. -#}
+<dialog class="lightbox" aria-label="Expanded photo">
+	<img alt="" />
+</dialog>
+
 {%- if pagination.pages.length > 1 %}
 <nav class="pagination" aria-label="Gallery pages">
 	{%- if pagination.href.previous %}
@@ -55,3 +60,40 @@ permalink: "/images/{% if pagination.pageNumber > 0 %}{{ pagination.pageNumber +
 	appear on this page automatically.
 </p>
 {%- endif %}
+
+<script>
+	(function () {
+		var gallery = document.querySelector(".gallery");
+		var dialog = document.querySelector(".lightbox");
+
+		// Without <dialog> support the anchors keep their normal behaviour.
+		if (!gallery || !dialog || typeof dialog.showModal !== "function") {
+			return;
+		}
+
+		var full = dialog.querySelector("img");
+
+		gallery.addEventListener("click", function (event) {
+			var link = event.target.closest("a");
+			if (!link || !gallery.contains(link)) {
+				return;
+			}
+			event.preventDefault();
+
+			var thumb = link.querySelector("img");
+			full.src = link.getAttribute("href");
+			full.alt = thumb ? thumb.alt : "";
+			dialog.showModal();
+		});
+
+		// Click anywhere — the photo or the backdrop around it — to collapse.
+		dialog.addEventListener("click", function () {
+			dialog.close();
+		});
+
+		// Drop the source so a large photo isn't held in memory while closed.
+		dialog.addEventListener("close", function () {
+			full.removeAttribute("src");
+		});
+	})();
+</script>
