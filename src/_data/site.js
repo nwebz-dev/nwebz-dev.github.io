@@ -7,6 +7,7 @@ export default {
 		github: "https://github.com/nwebz-dev",
 		linkedin: "https://www.linkedin.com/in/nick-weber-37a014a6",
 		instagram: "https://www.instagram.com/fuzzy.dunnlop",
+		email: "nick@nwebz.co",
 	},
 	nav: [
 		{ label: "About", url: "/about/" },

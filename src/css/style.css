@@ -311,6 +311,15 @@ h3 + p strong {
 	fill: currentColor;
 }
 
+/* The envelope is drawn in strokes, not a solid glyph like the brand marks. */
+.social .icon-mail {
+	fill: none;
+	stroke: currentColor;
+	stroke-width: 1.9;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
 /* Code */
 
 code {
