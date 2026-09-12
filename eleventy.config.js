@@ -1,4 +1,19 @@
+import { feedPlugin } from "@11ty/eleventy-plugin-rss";
+
 export default function (eleventyConfig) {
+	eleventyConfig.addPlugin(feedPlugin, {
+		type: "atom",
+		outputPath: "/feed.xml",
+		collection: { name: "posts", limit: 20 },
+		metadata: {
+			language: "en",
+			title: "Nick Weber",
+			subtitle: "Notes on software, tooling, and whatever else.",
+			base: "https://nwebz.co/",
+			author: { name: "Nick Weber" },
+		},
+	});
+
 	eleventyConfig.addPassthroughCopy("src/css");
 	eleventyConfig.addPassthroughCopy("src/img");
 	// Custom domain for GitHub Pages. Must be in the built output, or each
