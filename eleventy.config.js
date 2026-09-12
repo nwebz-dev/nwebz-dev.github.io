@@ -38,6 +38,7 @@ export default function (eleventyConfig) {
 		new Date(value).toISOString().slice(0, 10),
 	);
 
+	// Newest first. Templates iterate this directly — don't add `| reverse`.
 	eleventyConfig.addCollection("posts", (collection) =>
 		collection.getFilteredByGlob("src/posts/*.md").reverse(),
 	);
