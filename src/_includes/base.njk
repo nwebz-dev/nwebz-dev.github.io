@@ -65,6 +65,10 @@
 					if (meta) {
 						meta.setAttribute("content", theme === "light" ? "#fdfdfc" : "#16161a");
 					}
+					// Anything embedded in an iframe has to be told separately.
+					document.dispatchEvent(
+						new CustomEvent("themechange", { detail: { theme: theme } }),
+					);
 				}
 
 				apply(root.dataset.theme === "light" ? "light" : "dark");

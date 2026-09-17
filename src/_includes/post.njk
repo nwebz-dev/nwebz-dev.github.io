@@ -9,3 +9,48 @@ layout: base.njk
 </article>
 
 <p class="back"><a href="/posts/">← All writing</a></p>
+
+{#
+	Comments are threads in this repo's GitHub Discussions — giscus only
+	embeds them. `pathname` mapping means each post gets its own thread,
+	created on the first comment.
+#}
+<section class="comments">
+	<h2>Comments</h2>
+	<script
+		src="https://giscus.app/client.js"
+		data-repo="nwebz-dev/nwebz-dev.github.io"
+		data-repo-id="R_kgDOUO3SoQ"
+		data-category="Announcements"
+		data-category-id="DIC_kwDOUO3Soc4DFxnP"
+		data-mapping="pathname"
+		data-strict="1"
+		data-reactions-enabled="1"
+		data-emit-metadata="0"
+		data-input-position="top"
+		data-theme="dark"
+		data-lang="en"
+		data-loading="lazy"
+		crossorigin="anonymous"
+		async
+	></script>
+	<noscript>
+		<a href="https://github.com/nwebz-dev/nwebz-dev.github.io/discussions">
+			Comments are on GitHub Discussions.
+		</a>
+	</noscript>
+</section>
+
+<script>
+	// Keep the embedded widget in step with the site's light/dark toggle.
+	document.addEventListener("themechange", function (event) {
+		var frame = document.querySelector("iframe.giscus-frame");
+		if (!frame) {
+			return;
+		}
+		frame.contentWindow.postMessage(
+			{ giscus: { setConfig: { theme: event.detail.theme } } },
+			"https://giscus.app",
+		);
+	});
+</script>

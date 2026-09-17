@@ -3,8 +3,13 @@
 	GitHub and Instagram glyphs are from Simple Icons (CC0). LinkedIn and the
 	envelope are drawn by hand — Simple Icons dropped LinkedIn at the company's
 	request, and has no generic mail mark.
+
+	Set `socialOnly` before including to show a subset, e.g.
+	{% set socialOnly = ["github", "linkedin", "email"] %}
+	Leave it unset for all four.
 #}
 <ul class="social">
+	{%- if not socialOnly or "github" in socialOnly %}
 	<li>
 		<a href="{{ site.social.github }}" aria-label="GitHub">
 			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -12,6 +17,8 @@
 			</svg>
 		</a>
 	</li>
+	{%- endif %}
+	{%- if not socialOnly or "linkedin" in socialOnly %}
 	<li>
 		<a href="{{ site.social.linkedin }}" aria-label="LinkedIn">
 			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -20,6 +27,8 @@
 			</svg>
 		</a>
 	</li>
+	{%- endif %}
+	{%- if not socialOnly or "instagram" in socialOnly %}
 	<li>
 		<a href="{{ site.social.instagram }}" aria-label="Instagram">
 			<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -27,6 +36,8 @@
 			</svg>
 		</a>
 	</li>
+	{%- endif %}
+	{%- if not socialOnly or "email" in socialOnly %}
 	<li>
 		<a href="mailto:{{ site.social.email }}" aria-label="Email {{ site.social.email }}">
 			<svg class="icon-mail" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -35,4 +46,5 @@
 			</svg>
 		</a>
 	</li>
+	{%- endif %}
 </ul>
