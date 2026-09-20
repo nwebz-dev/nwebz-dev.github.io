@@ -43,6 +43,11 @@ export default function (eleventyConfig) {
 		collection.getFilteredByGlob("src/posts/*.md").reverse(),
 	);
 
+	// Written by scripts/publish-notes.py from the Obsidian vault.
+	eleventyConfig.addCollection("notes", (collection) =>
+		collection.getFilteredByGlob("src/notes/*.md").reverse(),
+	);
+
 	return {
 		dir: {
 			input: "src",
