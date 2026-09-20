@@ -20,6 +20,11 @@ export default function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("src/css");
 	eleventyConfig.addPassthroughCopy("src/img");
+	// Kept out of src/img so the favicon does not land in the photo gallery,
+	// which is built from a listing of that directory.
+	eleventyConfig.addPassthroughCopy("src/icon");
+	// Browsers and feed readers request /favicon.ico regardless of the link tags.
+	eleventyConfig.addPassthroughCopy({ "src/icon/favicon.ico": "favicon.ico" });
 	// Custom domain for GitHub Pages. Must be in the built output, or each
 	// deploy overwrites the Pages domain setting.
 	eleventyConfig.addPassthroughCopy("src/CNAME");
