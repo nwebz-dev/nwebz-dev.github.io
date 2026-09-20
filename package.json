@@ -6,15 +6,14 @@
   "scripts": {
     "start": "eleventy --serve",
     "build": "eleventy",
-    "clean": "rm -rf _site",
-    "notes": "python3 scripts/publish-notes.py",
-    "notes:dry": "python3 scripts/publish-notes.py --dry-run"
+    "clean": "rm -rf _site"
   },
   "keywords": [],
   "author": "Nick Weber",
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "^3.1.6",
-    "@11ty/eleventy-plugin-rss": "^3.0.0"
+    "@11ty/eleventy-plugin-rss": "^3.0.0",
+    "markdown-it-footnote": "^4.0.0"
   }
 }

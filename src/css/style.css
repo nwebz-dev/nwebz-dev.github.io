@@ -352,6 +352,52 @@ h3 + p strong {
 	stroke-linejoin: round;
 }
 
+/* Footnotes */
+
+.footnote-ref a {
+	padding: 0 0.1em;
+	text-decoration: none;
+	font-size: 0.8em;
+	font-variant-numeric: tabular-nums;
+}
+
+.footnote-ref a:hover {
+	text-decoration: underline;
+}
+
+.footnotes-sep {
+	margin: 3rem 0 1.25rem;
+	border: 0;
+	border-top: 1px solid var(--rule);
+}
+
+.footnotes {
+	color: var(--muted);
+	font-size: 0.9375rem;
+}
+
+.footnotes-list {
+	padding-left: 1.25rem;
+}
+
+.footnotes-list li {
+	margin-bottom: 0.4rem;
+}
+
+.footnotes-list p {
+	margin: 0;
+}
+
+/* Highlight the footnote you just jumped to. */
+.footnote-item:target {
+	background: var(--code-bg);
+	border-radius: 3px;
+}
+
+.footnote-backref {
+	text-decoration: none;
+}
+
 /* Comments */
 
 .comments {
