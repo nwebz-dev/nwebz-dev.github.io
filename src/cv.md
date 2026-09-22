@@ -7,6 +7,27 @@ description: Nick Weber — Site Reliability and DevOps Engineering.
 
 # CV
 
+{#- On screen the site header carries the name and the Elsewhere section
+    carries the links. Print drops both, so the PDF needs them on the page
+    itself — a CV whose only contact details are three unlabelled icons is
+    no use to whoever opens the file. #}
+
+<div class="print-only cv-identity">
+	<h1>{{ site.author }}</h1>
+	<p>{{ site.social.email }} · {{ site.social.github }} · {{ site.social.linkedin }}</p>
+</div>
+
+{#- Built by scripts/cv-pdf.js from this very page, on every production
+    build, so it cannot drift from what is written below. #}
+
+<a class="cv-download" href="/cv.pdf" download="nick-weber-cv.pdf">
+	<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+		<path d="M12 3v12m0 0 4.5-4.5M12 15l-4.5-4.5" />
+		<path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2" />
+	</svg>
+	Download PDF
+</a>
+
 {#
   STRUCTURE NOTES (HTML comments — these never render on the page):
 
@@ -98,7 +119,7 @@ specialise in, roughly what scale you've worked at, what you want next. #}
 
 **2009**
 
-## Elsewhere:
+<h2 class="print-hide">Elsewhere:</h2>
 
 {% set socialOnly = ["github", "linkedin", "email"] %}
 {% include "social.njk" %}

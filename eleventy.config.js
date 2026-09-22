@@ -1,5 +1,6 @@
 import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import markdownItFootnote from "markdown-it-footnote";
+import buildCvPdf from "./scripts/cv-pdf.js";
 
 export default function (eleventyConfig) {
 	// Eleventy's markdown-it has no footnote support by default.
@@ -33,6 +34,16 @@ export default function (eleventyConfig) {
 	// Eleventy can't see as a dependency. Without this, adding or removing a
 	// photo leaves the served page stale until the dev server restarts.
 	eleventyConfig.addWatchTarget("src/img/", { resetConfig: true });
+
+	// /cv.pdf is printed from the built /cv/ page, so it can never drift from
+	// cv.md. Skipped while serving — it costs a couple of seconds, and the dev
+	// server would pay it on every keystroke. Run `npm run build` to refresh it.
+	eleventyConfig.on("eleventy.after", async ({ dir, runMode }) => {
+		if (runMode !== "build") {
+			return;
+		}
+		await buildCvPdf(dir.output);
+	});
 
 	eleventyConfig.addFilter("readableDate", (value) =>
 		new Date(value).toLocaleDateString("en-GB", {
