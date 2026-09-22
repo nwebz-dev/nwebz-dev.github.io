@@ -6,7 +6,7 @@ export default {
 	social: {
 		github: "https://github.com/nwebz-dev",
 		linkedin: "https://www.linkedin.com/in/nick-weber-37a014a6",
-		instagram: "https://www.instagram.com/fuzzy.dunnlop",
+		instagram: "https://www.instagram.com/fragile.styles",
 		lichess: "https://lichess.org/@/nwebz",
 		email: "nick@nwebz.co",
 	},
