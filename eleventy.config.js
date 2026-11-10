@@ -2,22 +2,40 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import markdownItFootnote from "markdown-it-footnote";
 import buildCvPdf from "./scripts/cv-pdf.js";
 
+// Sections that aren't ready for visitors. Their pages, feeds and API
+// endpoints are left out of the build entirely — a redirect bolted onto a
+// static host still ships the content, so "hidden" would only mean "one
+// View Source away". Empty this array to publish everything again.
+const WIP = ["posts"];
+
 export default function (eleventyConfig) {
+	// Templates read this to drop nav links and sections for hidden parts.
+	eleventyConfig.addGlobalData("wip", WIP);
+
+	if (WIP.includes("posts")) {
+		// The stub at src/posts.njk still builds, so existing links to
+		// /posts/ land on a note instead of a 404.
+		eleventyConfig.ignores.add("src/posts/*.md");
+		eleventyConfig.ignores.add("src/api/posts.11ty.js");
+	}
+
 	// Eleventy's markdown-it has no footnote support by default.
 	eleventyConfig.amendLibrary("md", (md) => md.use(markdownItFootnote));
 
-	eleventyConfig.addPlugin(feedPlugin, {
-		type: "atom",
-		outputPath: "/feed.xml",
-		collection: { name: "posts", limit: 20 },
-		metadata: {
-			language: "en",
-			title: "Nick Weber",
-			subtitle: "Notes on software, tooling, and whatever else.",
-			base: "https://nwebz.co/",
-			author: { name: "Nick Weber" },
-		},
-	});
+	if (!WIP.includes("posts")) {
+		eleventyConfig.addPlugin(feedPlugin, {
+			type: "atom",
+			outputPath: "/feed.xml",
+			collection: { name: "posts", limit: 20 },
+			metadata: {
+				language: "en",
+				title: "Nick Weber",
+				subtitle: "Notes on software, tooling, and whatever else.",
+				base: "https://nwebz.co/",
+				author: { name: "Nick Weber" },
+			},
+		});
+	}
 
 	eleventyConfig.addPassthroughCopy("src/css");
 	eleventyConfig.addPassthroughCopy("src/img");

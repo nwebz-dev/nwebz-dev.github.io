@@ -2,7 +2,24 @@
 layout: base.njk
 title: Words
 permalink: /posts/
+noindex: true
+# Swap for any file in src/img/. Something low-contrast works best — the
+# scrim does a lot, but a busy frame still fights the text.
+wipImage: /img/fog.jpg
+eleventyComputed:
+  bodyClass: "{% if 'posts' in wip %}wip{% endif %}"
 ---
+
+{%- if "posts" in wip %}
+{#- The posts themselves aren't built while this section is on the WIP list,
+    so there is nothing to link to. The page stays so old links and search
+    results land somewhere deliberate instead of on a 404. -#}
+<section class="wip-notice">
+	<h1>Under construction</h1>
+	<p>This part of the site is still being built. The rest of it works.</p>
+	<p><a href="/about/">About</a> · <a href="/images/">Images</a> · <a href="/cv/">CV</a></p>
+</section>
+{%- else %}
 
 <h1>Words</h1>
 
@@ -16,3 +33,4 @@ permalink: /posts/
 	<li>Nothing published yet.</li>
 	{%- endfor %}
 </ul>
+{%- endif %}

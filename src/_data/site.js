@@ -10,10 +10,12 @@ export default {
 		lichess: "https://lichess.org/@/nwebz",
 		email: "nick@nwebz.co",
 	},
+	// `key` is matched against the WIP list in eleventy.config.js — a hidden
+	// section drops out of the nav without its entry being deleted here.
 	nav: [
-		{ label: "About", url: "/about/" },
-		{ label: "Words", url: "/posts/" },
-		{ label: "Images", url: "/images/" },
-		{ label: "CV", url: "/cv/" },
+		{ label: "About", url: "/about/", key: "about" },
+		{ label: "Words", url: "/posts/", key: "posts" },
+		{ label: "Images", url: "/images/", key: "images" },
+		{ label: "CV", url: "/cv/", key: "cv" },
 	],
 };

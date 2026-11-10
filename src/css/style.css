@@ -511,6 +511,69 @@ td {
 /* Print — also what Chromium renders into cv.pdf at build time (scripts/cv-pdf.js).
    The screen theme is forced back to ink-on-paper: a reader printing in dark
    mode would otherwise get a page of solid #16161a. */
+/* Under construction
+   ------------------
+   A WIP section keeps the site chrome — header, nav, footer — so a visitor
+   who lands here can still get to the parts that are finished. The photo
+   goes behind the whole page rather than in a box, with a scrim over it
+   heavy enough that body text stays readable against a busy frame. */
+
+body.wip {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+body.wip::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background-image: linear-gradient(
+			to bottom,
+			rgba(22, 22, 26, 0.58),
+			rgba(22, 22, 26, 0.82)
+		),
+		var(--wip-image);
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+:root[data-theme="light"] body.wip::before {
+	background-image: linear-gradient(
+			to bottom,
+			rgba(253, 253, 252, 0.62),
+			rgba(253, 253, 252, 0.86)
+		),
+		var(--wip-image);
+}
+
+/* The page is mostly empty, so the notice is centred in what's left rather
+   than sitting against the header. */
+body.wip main {
+	flex: 1;
+	display: flex;
+	align-items: center;
+}
+
+.wip-notice h1 {
+	margin: 0 0 0.75rem;
+	font-size: clamp(1.9rem, 7vw, 2.6rem);
+	line-height: 1.15;
+	letter-spacing: -0.02em;
+}
+
+.wip-notice p {
+	margin: 0 0 0.6rem;
+	color: var(--muted);
+	max-width: 28rem;
+}
+
+.wip-notice p:last-child {
+	margin-bottom: 0;
+}
+
 @media print {
 	@page {
 		size: Letter;
