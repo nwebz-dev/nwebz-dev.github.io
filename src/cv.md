@@ -46,7 +46,7 @@ description: Nick Weber — Site Reliability and DevOps Engineering.
   Delete this comment block when you're done.
 #}
 
-Site reliability and DevOps engineer. {# One or two more lines: what you
+Site Reliability and Observability Engineer {# One or two more lines: what you
 specialise in, roughly what scale you've worked at, what you want next. #}
 
 ## Skills:
@@ -71,6 +71,7 @@ specialise in, roughly what scale you've worked at, what you want next. #}
 - Resolved oncall production issues for both ECE and Splunk platfroms, as well as ongoing daily support.
 
 ### Engineer II - Comcast:
+**August 2018 –  February 2019** · Philadelphia, PA
 * Splunk Administration for Networking Services Engineering Group
 * Owned Usage Based Billing reporting from Splunk
 
