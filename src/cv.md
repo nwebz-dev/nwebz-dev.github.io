@@ -83,7 +83,7 @@ description: Nick Weber — Observability and Site Reliability Engineering.
   - Provided 24/7 user support as part of a four-person on-call rotation.
 - Continued ownership of Usage-Based Billing reporting from Splunk (see below).
 
-### Computer Enterprises at Comcast (contract)
+### Computer Enterprises - Comcast (contract)
 **January 2018 – August 2018** · Philadelphia, PA
 - Owned delivery assurance for subscriber usage-threshold notifications, where
   a missed notification was revenue-impacting.
@@ -109,7 +109,7 @@ description: Nick Weber — Observability and Site Reliability Engineering.
 
 **2015**
 
-### BA Philosophy, minor Cognitive Science — University at Albany, SUNY
+### BA: Major - Philosophy, Minor - Cognitive Science — University at Albany, SUNY
 
 **2009**
 
