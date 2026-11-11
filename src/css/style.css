@@ -511,6 +511,13 @@ td {
 /* Print — also what Chromium renders into cv.pdf at build time (scripts/cv-pdf.js).
    The screen theme is forced back to ink-on-paper: a reader printing in dark
    mode would otherwise get a page of solid #16161a. */
+/* A nested list belongs to its parent bullet, so it shouldn't carry the
+   paragraph-sized gap that separates top-level blocks. */
+li > ul,
+li > ol {
+	margin-bottom: 0;
+}
+
 /* Under construction
    ------------------
    A WIP section keeps the site chrome — header, nav, footer — so a visitor

@@ -46,37 +46,64 @@ description: Nick Weber — Site Reliability and DevOps Engineering.
   Delete this comment block when you're done.
 #}
 
-Site Reliability and Observability Engineer {# One or two more lines: what you
+Observability & Site Reliability Engineer {# One or two more lines: what you
 specialise in, roughly what scale you've worked at, what you want next. #}
 
 ## Skills:
 
-- **Cloud** — AWS, Google
 - **Linux** — System Administration
-- **Containers & orchestration** — Kubernetes, Docker
-- **Infrastructure as code** — Ansible
-- **CI/CD** — Concourse; GitHub Actions
-- **Observability** — ELK, Splunk, Grafana, OTEL
-- **Languages** — Python, Bash, Go
-- **Networking** — DNS, TLS, HTTP, load balancing
+- **Languages** — Python, Bash, Go, SQL
+- **Observability** — ELK, Splunk, Prometheus, Grafana, OTEL
+- **Cloud** — AWS, Google Cloud
+- **Containers & Orchestration** — Kubernetes, Docker, LXC
+- **CI/CD** — Concourse, GitHub Actions
+- **Configuration Management** — Ansible
+- **Infrastructure as code** — Terraform
+- **Networking** — DNS, TLS, HTTP, Load Balancing
 - **GIS** — Spatial Data Management, Esri suite, FossGeo, PostGIS, GeoServer, Leaflet
 
 ## Experience:
+### Engineer III — Comcast (DevX Group):
+**September 2024 – March 2026** · Philadelphia, PA
 
-### Engineer III — Comcast:
-**February 2019 –  March 2026** · Philadelphia, PA
+- Ran and maintained a multi-tenant Elasticsearch observability logging
+  platform spanning distinct Kubernetes clusters, carrying upwards of 300 TB
+  of logs a day for more than 200 engineering teams company-wide.
+- Troubleshot search latency across the platform's clusters, working from
+  Grafana dashboards of per-volume storage utilisation and availability-zone
+  placement to trace recurring degradation to data-node PVCs reaching capacity.
+- Managed persistent storage for the platform: PVC provisioning and volume
+  migration for Elasticsearch data nodes.
+- Shared a 24/7 on-call rotation across 12 engineers, handling production
+  incidents and support for tenant teams.
+- Contributed custom Ansible modules for gathering deployment information
+  across the platform.
 
-- Owned system administration for 12 distinct ELK clusters running on a self-hosted instance of [ECE](https://www.elastic.co/ece/).
-- Presented monthly ECE platform metrics with Grafana, Prometheus, and Splunk for internal SysQ (systemic quality) meetings.
-- Resolved oncall production issues for both ECE and Splunk platfroms, as well as ongoing daily support.
+### Engineer III — Comcast (Network Services Engineering Group):
+**February 2019 – September 2024** · Philadelphia, PA
 
-### Engineer II - Comcast:
-**August 2018 –  February 2019** · Philadelphia, PA
-* Splunk Administration for Networking Services Engineering Group
-* Owned Usage Based Billing reporting from Splunk
+- Owned system administration for 12 distinct ELK clusters running on a
+  self-hosted instance of [ECE](https://www.elastic.co/ece/).
+  - Version upgrades and blue-green migrations
+  - Patching security vulnerabilities
+  - User access management
+  - Configuring SSO endpoints
+  - Troubleshooting search latency
+- Presented monthly ECE platform metrics with Grafana, Prometheus, and Splunk to management for internal SysQ (systemic quality) meetings.
+- Resolved oncall production issues for both ECE and Splunk platforms, as well as ongoing daily support.
+- Provided EDA (exploratory data analysis) on speed-test data from the Internet
+  Measurement Platform in Databricks — Spark for data processing, scikit-learn
+  and Keras for modelling — to identify latency trends across the network.
+
+### Engineer II — Comcast (Network Services Engineering Group):
+
+**August 2018 – February 2019** · Philadelphia, PA
+- Splunk Administration for Networking Services Engineering Group
+- Continued ownership of Usage Based Billing reporting from Splunk
+- Resolved oncall production issues for both ECE and Splunk platforms, as well as ongoing daily support.
 
 ### Computer Enterprises (contract)
-**January 2018 –  August 2018** · Philadelphia, PA
+**January 2018 – August 2018** · Philadelphia, PA
 {# The main event — 8+ years. Aim for 4–5 bullets here, more than anywhere
    else on the page. You've tagged Linux administration and Ansible on
    LinkedIn, so lead with the infrastructure work rather than the pipelines:
