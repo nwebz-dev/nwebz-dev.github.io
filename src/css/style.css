@@ -508,9 +508,6 @@ td {
 	display: none;
 }
 
-/* Print — also what Chromium renders into cv.pdf at build time (scripts/cv-pdf.js).
-   The screen theme is forced back to ink-on-paper: a reader printing in dark
-   mode would otherwise get a page of solid #16161a. */
 /* A nested list belongs to its parent bullet, so it shouldn't carry the
    paragraph-sized gap that separates top-level blocks. */
 li > ul,
@@ -581,6 +578,9 @@ body.wip main {
 	margin-bottom: 0;
 }
 
+/* Print — also what Chromium renders into cv.pdf at build time (scripts/cv-pdf.js).
+   The screen theme is forced back to ink-on-paper: a reader printing in dark
+   mode would otherwise get a page of solid #16161a. */
 @media print {
 	@page {
 		size: Letter;
@@ -619,8 +619,13 @@ body.wip main {
 		display: block;
 	}
 
+	/* The identity block above already carries the name, so the page's h1
+	   sits under it as a subtitle rather than competing with it. */
 	main > h1 {
-		display: none;
+		margin: 0 0 1.4rem;
+		font-size: 11.5pt;
+		font-weight: 600;
+		color: var(--muted);
 	}
 
 	.cv-identity h1 {
